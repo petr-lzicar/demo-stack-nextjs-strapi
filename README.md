@@ -1,0 +1,4 @@
+- v obou slozkach `frontend` a `backend` je potreba nainstalovat npm balicky pres npm install
+- v bou slozkach je potreb spustit node - `npm run dev`
+- frontend web bezi na adrese `localhost:3000` a admin bezi na adrese `http://localhost:1337/admin` - pristupy: petrlz63@gmail.com a heslo petrlz63@gmail.coM
+- database je pro test v sqlite a jako soucast gitu
