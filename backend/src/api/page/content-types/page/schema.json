@@ -4,7 +4,7 @@
   "info": {
     "singularName": "page",
     "pluralName": "pages",
-    "displayName": "Pages",
+    "displayName": "Page",
     "description": ""
   },
   "options": {
@@ -25,7 +25,7 @@
         }
       }
     },
-    "name": {
+    "title": {
       "type": "string",
       "pluginOptions": {
         "i18n": {
@@ -34,8 +34,8 @@
       }
     },
     "slug": {
-      "type": "string",
-      "required": true
+      "type": "uid",
+      "required": false
     }
   }
 }

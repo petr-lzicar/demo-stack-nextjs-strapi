@@ -1,4 +1,4 @@
-// src/app/articles/[slug]/page.tsx
+// src/app/articles/[slug]/page.tsx.tmp
 import { getArticleBySlug } from "@/lib/api";
 import Image from "next/image";
 import Link from "next/link";

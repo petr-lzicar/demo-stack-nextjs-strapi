@@ -2,6 +2,7 @@
 import { getAllArticles } from "@/lib/api";
 import Link from "next/link";
 import Image from "next/image";
+import Navbar from "@/components/Navbar";
 
 export default async function Home() {
   // Získáme články ze Strapi
@@ -10,24 +11,25 @@ export default async function Home() {
   return (
       <div className="min-h-screen p-8 sm:p-12 font-sans">
         <header className="mb-12 text-center">
+            <Navbar />
           <h1 className="text-3xl font-bold mb-4">HP</h1>
-          <p className="text-gray-600 dark:text-gray-300">
-           Seznam stránek
-          </p>
+          {/*<p className="text-gray-600 dark:text-gray-300">*/}
+          {/* Seznam stránek*/}
+          {/*</p>*/}
         </header>
 
         <main>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {articles.map((article) => (
-                <ArticleCard key={article.id} article={article} />
-            ))}
-          </div>
+          {/*<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">*/}
+          {/*  {articles.map((article) => (*/}
+          {/*      <ArticleCard key={article.id} article={article} />*/}
+          {/*  ))}*/}
+          {/*</div>*/}
 
-          {articles.length === 0 && (
-              <div className="text-center p-8">
-                <p className="text-gray-500">Žádné články k zobrazení</p>
-              </div>
-          )}
+          {/*{articles.length === 0 && (*/}
+          {/*    <div className="text-center p-8">*/}
+          {/*      <p className="text-gray-500">Žádné články k zobrazení</p>*/}
+          {/*    </div>*/}
+          {/*)}*/}
         </main>
       </div>
   );
