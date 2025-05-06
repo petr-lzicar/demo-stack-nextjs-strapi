@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_obecne_moje_komponentas",
+  "info": {
+    "displayName": "moje komponenta",
+    "icon": "envelop"
+  },
+  "options": {},
+  "attributes": {
+    "Email": {
+      "type": "email",
+      "required": true
+    }
+  }
+}

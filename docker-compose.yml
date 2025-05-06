@@ -1,0 +1,52 @@
+version: '3'
+
+services:
+  # Strapi backend
+  backend:
+    image: node:22-alpine
+    container_name: strapi-backend
+    working_dir: /app
+    volumes:
+      - ./backend:/app
+    ports:
+      - "1337:1337"
+    environment:
+      NODE_ENV: development
+      DATABASE_CLIENT: sqlite
+      DATABASE_FILENAME: .tmp/data.db
+      JWT_SECRET: ${JWT_SECRET:-0e368445a5b9a45c1f9eb58fcdcb7cb8}
+      API_TOKEN_SALT: ${API_TOKEN_SALT:-2e72b9f75e20bee45e6f71f97de02403}
+      ADMIN_JWT_SECRET: ${ADMIN_JWT_SECRET:-82eaa90a4a841d981ba060d7b7d1cbfc}
+      APP_KEYS: ${APP_KEYS:-a9c5,49ca,44c9,df5b,bc26}
+      HOST: 0.0.0.0
+      PORT: 1337
+    command: >
+      sh -c "yarn install && yarn develop"
+    networks:
+      - app-network
+    restart: unless-stopped
+
+  # Next.js frontend
+  frontend:
+    image: node:22-alpine
+    container_name: nextjs-frontend
+    working_dir: /app
+    volumes:
+      - ./frontend:/app
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: development
+      STRAPI_URL: http://backend:1337
+      SITE_URL: http://localhost:3000
+    command: >
+      sh -c "yarn install && yarn dev"
+    networks:
+      - app-network
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+networks:
+  app-network:
+    driver: bridge
